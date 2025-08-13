@@ -1,0 +1,13 @@
+
+.title {
+    font-size: 30px;
+    font-weight: 400;
+    font-style: swap;
+}
+.body {
+    background-image: 'background.png'; /* Image path */
+    background-size: cover; /* Scale to fill */
+    background-position: center; /* Center it */
+    background-repeat: no-repeat; /* No tiling */
+    font-family: 'Lilita One', sans-serif;
+}
