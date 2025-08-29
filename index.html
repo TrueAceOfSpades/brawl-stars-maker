@@ -102,12 +102,8 @@
         <input value="2" class="range" type = "range" step = 1 min = 0 max = 4 id="movement_speed">
         <p id="movement_speed_text" class="setting" style="left:30px">Normal</p>
       </div>
-      <div style="display:flex;position: relative;top:-65px">
-        <p class="setting">Reload Speed:</p>
-        <input value="1.5" class="range" type = "range" step = 0.05 min = 0.05 max = 3 id="reload_speed">
-        <p id="reload_speed_text" class="setting" style="left:30px">Normal (1.25)</p>
-      </div>
-      <div style="display:flex;position: relative;top:-90px">
+      
+      <div style="display:flex;position: relative;top:-70px">
         <p class="setting">Rarity:</p>
         <select style="color:rgb(86, 86, 86);text-shadow: none;" class="input" name="dropdown_name" id="rarity">
           <option value="0">Rare</option>
@@ -120,7 +116,7 @@
         </select>
 
       </div>
-      <div style="display:flex;position: relative;top:-115px">
+      <div style="display:flex;position: relative;top:-105px">
         <p class="setting">Health:</p>
         <input style="width:80px;" value="6400" class="input" type = "number" step = 100 min = 100 id="health">
 
@@ -152,7 +148,30 @@
           <option value="7" style="color:rgb(135, 116, 143)">Inflictor</option>
         </select>
       </div>
-      
+      <div style="display:flex;position: relative;top:-135px">
+        <p class="setting">Main attack:</p>
+
+      </div>
+      <div style="display:flex;position: relative;top:-175px">
+        <p class="setting">Damage:</p>
+        <input style="width:70px;" value="2000" class="input" type = "number" step = 100 min = 100 id="damage">
+
+        <p style="left:30px" class="setting">Projectiles:</p>
+        <input style="width:30px;left:40px;" value="1" class="input" type = "number" step = 1 min = 0 id="projectiles">
+        
+        <p style="left:48px" class="setting">Super charge %:</p>
+        <input style="width:50px;left:58px;" value="25" class="input" type = "number" step = 1 min = 0 id="super_charge">
+
+      </div>
+      <div style="display:flex;position: relative;top:-205px">
+        <p class="setting">Reload Speed:</p>
+        <input value="1.5" class="range" type = "range" step = 0.05 min = 0.05 max = 3 id="reload_speed">
+        <p id="reload_speed_text" class="setting" style="left:30px">Normal (1.25)</p>
+      </div>
+      <div style="display:flex;position: relative;top:-225px">
+        <p class="setting">Description:</p>
+        <textarea class="textarea" id="attack_description">description text</textarea>
+      </div>
 
     </div>
     
