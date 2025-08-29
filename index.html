@@ -13,7 +13,39 @@
   var mode = 1;
   var speed_tiers = ["Very slow","Slow","Normal","Fast","Very fast"];
   var rarities = ['Rare','Super rare', 'Epic', 'Mythic', 'Legendary', 'Ultra'];
-  
+  var traits = []
+  var preset_traits={
+    "tank charge":{
+      icon:"",
+      desc:"Charges super by taking damage",
+    },
+    "auto charge":{
+      icon:"",
+      desc:"Charges super over time",
+    },
+    "starting charge":{
+      icon:"",
+      desc:"Starts the match with super charged",
+    },
+    "water walk":{
+      icon:"",
+      desc:"Allows for traversal over water",
+    },
+    "enemy proximity":{
+      icon:"",
+      desc:"Charges super by being close to enemies",
+    },
+    "ally proximity":{
+      icon:"",
+      desc:"Charges super by being close to allies",
+    },
+    "healing charge":{
+      icon:"",
+      desc:"Charges super by healing",
+    },
+
+  }
+
   function tick(){
     document.getElementById('movement_speed_text').innerHTML=speed_tiers[document.getElementById('movement_speed').value];
     document.getElementById('reload_speed_text').innerHTML=speed_tiers[Math.round(4-3/2*document.getElementById('reload_speed').value)]+" ("+document.getElementById('reload_speed').value+")";
@@ -72,14 +104,53 @@
       </div>
       <div style="display:flex;position: relative;top:-65px">
         <p class="setting">Reload Speed:</p>
-        <input value="1.55" class="range" type = "range" step = 0.05 min = 0.05 max = 3 id="reload_speed">
+        <input value="1.5" class="range" type = "range" step = 0.05 min = 0.05 max = 3 id="reload_speed">
         <p id="reload_speed_text" class="setting" style="left:30px">Normal (1.25)</p>
       </div>
       <div style="display:flex;position: relative;top:-90px">
         <p class="setting">Rarity:</p>
-        <input value="2" class="range" type = "range" step = 1 min = 0 max = 5 id="rarity">
-        <p id="rarity_text" class="setting" style="left:30px">Normal (1.25)</p>
+        <select style="color:rgb(86, 86, 86);text-shadow: none;" class="input" name="dropdown_name" id="rarity">
+          <option value="0">Rare</option>
+          <option value="1">Super rare</option>
+          <option value="2">Epic</option>
+          <option value="3">Mythic</option>
+          <option value="4">Legendary</option>
+          <option value="5">Ultra</option>
+          <option value="6">Starting?..</option>
+        </select>
 
+      </div>
+      <div style="display:flex;position: relative;top:-115px">
+        <p class="setting">Health:</p>
+        <input style="width:80px;" value="6400" class="input" type = "number" step = 100 min = 100 id="health">
+
+      </div>
+      <div style="display:flex;position: relative;top:-135px">
+        <p class="setting">Class:</p>
+        <select style="color:rgb(86, 86, 86);text-shadow: none;" class="input" name="dropdown_name" id="class">
+          <option value="0">Damage Dealer</option>
+          <option value="1">Tank</option>
+          <option value="2">Assassin</option>
+          <option value="3">Controller</option>
+          <option value="4">Marksman</option>
+          <option value="5">Artillery</option>
+
+          <option value="6" style="color:rgb(135, 116, 143)">Chipper</option>
+          <option value="7" style="color:rgb(135, 116, 143)">Inflictor</option>
+        </select>
+        <p style="left:30px" class="setting">Sub class:</p>
+        <select style="color:rgb(86, 86, 86);text-shadow: none;left:38px" class="input" name="dropdown_name" id="sub_class">
+          <option value="-1">-</option>
+          <option value="0">Damage Dealer</option>
+          <option value="1">Tank</option>
+          <option value="2">Assassin</option>
+          <option value="3">Controller</option>
+          <option value="4">Marksman</option>
+          <option value="5">Artillery</option>
+
+          <option value="6" style="color:rgb(135, 116, 143)">Chipper</option>
+          <option value="7" style="color:rgb(135, 116, 143)">Inflictor</option>
+        </select>
       </div>
       
 

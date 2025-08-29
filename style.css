@@ -85,7 +85,9 @@
     1px 1px 0 #000;  
     position: relative;
     font-weight:500;
-    color:white
+    color:white;
+    border-width: 0px;
+    border-radius: 5px;
 }
 .range {
     width:150px;
@@ -114,6 +116,8 @@ input.input {
     position: relative;
     font-weight:500;
     color:white;
-    resize:none
+    resize:none;
+    border-width: 0px;
+    border-radius: 5px;
     
 }
