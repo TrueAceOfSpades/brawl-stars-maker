@@ -119,5 +119,11 @@ input.input {
     resize:none;
     border-width: 0px;
     border-radius: 5px;
-    
+}
+.attack_form{
+    left:10px;
+    position:relative;
+    border-width:2px;
+    border-style: solid;
+    border-radius:5px;
 }
