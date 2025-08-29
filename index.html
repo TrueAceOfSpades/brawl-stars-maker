@@ -12,9 +12,14 @@
 <script>
   var mode = 1;
   var speed_tiers = ["Very slow","Slow","Normal","Fast","Very fast"];
+  var rarities = ['Rare','Super rare', 'Epic', 'Mythic', 'Legendary', 'Ultra'];
   
   function tick(){
-    document.getElementById('movement_speed_text').innerHTML=speed_tiers[document.getElementById('movement_speed').value]
+    document.getElementById('movement_speed_text').innerHTML=speed_tiers[document.getElementById('movement_speed').value];
+    document.getElementById('reload_speed_text').innerHTML=speed_tiers[Math.round(4-3/2*document.getElementById('reload_speed').value)]+" ("+document.getElementById('reload_speed').value+")";
+    document.getElementById('rarity_text').innerHTML=rarities[document.getElementById('rarity').value];
+
+    
     document.getElementById('mode1').style="background-color:rgb(255,255,255,"+(mode==1?0.85:0.3)+")";
     document.getElementById('mode2').style="top:10px;left:20px;background-color:rgb(255,255,255,"+(mode==2?0.85:0.3)+")";
     document.getElementById('mode3').style="top:10px;left:30px;background-color:rgb(255,255,255,"+(mode==3?0.85:0.3)+")";
@@ -64,6 +69,17 @@
         <p class="setting">Movement Speed:</p>
         <input value="2" class="range" type = "range" step = 1 min = 0 max = 4 id="movement_speed">
         <p id="movement_speed_text" class="setting" style="left:30px">Normal</p>
+      </div>
+      <div style="display:flex;position: relative;top:-65px">
+        <p class="setting">Reload Speed:</p>
+        <input value="1.55" class="range" type = "range" step = 0.05 min = 0.05 max = 3 id="reload_speed">
+        <p id="reload_speed_text" class="setting" style="left:30px">Normal (1.25)</p>
+      </div>
+      <div style="display:flex;position: relative;top:-90px">
+        <p class="setting">Rarity:</p>
+        <input value="2" class="range" type = "range" step = 1 min = 0 max = 5 id="rarity">
+        <p id="rarity_text" class="setting" style="left:30px">Normal (1.25)</p>
+
       </div>
       
 
