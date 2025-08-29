@@ -1,13 +1,119 @@
 
 .title {
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 50px;
     font-style: swap;
+    text-shadow:
+    -1.5px -1.5px 0 #000,
+    1.5px -1.5px 0 #000,
+    -1.5px 1.5px 0 #000,
+    1.5px 1.5px 0 #000;  
+    position: relative;
+    left:20px;
+    font-weight:500;
+    color:white
+}
+.author {
+    font-size: 20px;
+    font-style: swap;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+    position: relative;
+    left:20px;
+    font-weight:500;
+    color:white
+}
+.setting {
+    font-size: 25px;
+    font-style: swap;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+    position: relative;
+    left:12px;
+    font-weight:500;
+    color:white
 }
 .body {
-    background-image: 'background.png'; /* Image path */
-    background-size: cover; /* Scale to fill */
-    background-position: center; /* Center it */
-    background-repeat: no-repeat; /* No tiling */
+    background-image: url('background.png'); /* Image path */
+    background-size: cover;
     font-family: 'Lilita One', sans-serif;
+    color:white
+}
+.section {
+    border-radius: 15px;
+    background-color: rgb(255,255,255,0.2);
+    position: relative;
+    width:800px;
+    height:1600px;
+    left:20px;
+    top:-20px;
+}
+.mode {
+    border-radius: 10px;
+    background-color: rgb(255,255,255,0.3);
+    position: relative;
+    width:70px;
+    height:70px;
+    left:10px;
+    top:10px;
+}
+.mode-icon {
+    width:60px;
+    height:60px;
+    position: relative;
+    top:5px;
+    left:5px;
+}
+.input{
+    font-size: 25px;
+    height:30px;
+    width:200px;
+    position: relative;
+    top:25px;
+    left:20px;
+    font-family: 'Lilita One', sans-serif;
+    font-style: swap;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+    position: relative;
+    font-weight:500;
+    color:white
+}
+.range {
+    width:150px;
+    position: relative;
+    top:2px;
+    left:20px;
+    accent-color: white;
+}
+input.input {
+  caret-color: blue;
+}
+.textarea{
+    font-size: 15px;
+    height:70px;
+    width:400px;
+    position: relative;
+    top:25px;
+    left:20px;
+    font-family: 'Lilita One', sans-serif;
+    font-style: swap;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+    position: relative;
+    font-weight:500;
+    color:white;
+    resize:none
+    
 }

@@ -4,11 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BSM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lilita+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-<style src="style.css"></style>
-<body class="body">
-    <p class="title">Brawl Stars Maker</p>
+<script>
+  var mode = 1;
+  var speed_tiers = ["Very slow","Slow","Normal","Fast","Very fast"];
+  
+  function tick(){
+    document.getElementById('movement_speed_text').innerHTML=speed_tiers[document.getElementById('movement_speed').value]
+    document.getElementById('mode1').style="background-color:rgb(255,255,255,"+(mode==1?0.85:0.3)+")";
+    document.getElementById('mode2').style="top:10px;left:20px;background-color:rgb(255,255,255,"+(mode==2?0.85:0.3)+")";
+    document.getElementById('mode3').style="top:10px;left:30px;background-color:rgb(255,255,255,"+(mode==3?0.85:0.3)+")";
+    document.getElementById('mode4').style="top:10px;left:40px;background-color:rgb(255,255,255,"+(mode==4?0.85:0.3)+")";
+  
+  
+  
+  }
+  
+  setInterval(tick,0);
+
+</script>
+
+<style src = "style.css"></style>
+<body class = "body">
+    <p class = "title">Brawl Stars Maker</p>
+    <p class = "author">Website made by TrueAceOfSpades</p>
+    <div class = "section">
+      <div style="display:flex;">
+        <!--Mode Select-->
+        <div id="mode1" class = "mode">
+          <img onclick="mode=1;" class = "mode-icon" src = "mode1.png" style = "width:45px;position:relative;left:12.5px">
+        </div>
+        <div id="mode2" class = "mode" style = "top:10px;left:20px">
+          <img class = "mode-icon" src = "mode2.png" onclick="mode=2;">
+        </div>
+        <div id="mode3" class = "mode" style = "top:10px;left:30px">
+          <img class = "mode-icon" src = "mode3.png" onclick="mode=3;">
+        </div>
+        <div id="mode4" class = "mode" style = "top:10px;left:40px">
+          <img class = "mode-icon" src = "mode4.png" onclick="mode=4;">
+        </div>
+        <div class = "mode" style = "top:10px;left:50px">
+          
+        </div>
+      </div>
+      <!--Settings-->
+      <div style="display:flex">
+        <p class="setting">Name:</p>
+        <input class="input" id="name" value="untitled">
+      </div>
+      <div style="display:flex;position: relative;top:-35px">
+        <p class="setting">Description:</p>
+        <textarea class="textarea" id="description">description text</textarea>
+      </div>
+      <div style="display:flex;position: relative;top:-35px">
+        <p class="setting">Movement Speed:</p>
+        <input value="2" class="range" type = "range" step = 1 min = 0 max = 4 id="movement_speed">
+        <p id="movement_speed_text" class="setting" style="left:30px">Normal</p>
+      </div>
+      
+
+    </div>
+    
+    
 </body>
 </html>
 
