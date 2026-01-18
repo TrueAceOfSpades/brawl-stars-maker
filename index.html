@@ -25,7 +25,7 @@
     },
     "starting charge":{
       icon:"",
-      desc:"Starts the match with super charged",
+      desc:"Spawns in with the super charged",
     },
     "water walk":{
       icon:"",
@@ -43,11 +43,19 @@
       icon:"",
       desc:"Charges super by healing",
     },
+    "evasion":{
+      icon:"",
+      desc:"Charges super by dodging nearby projectiles",
+    },
+    "hunt":{
+      icon:"",
+      desc:"Gain increased reload and movement speed when a nearby enemy is below 50% health"
+    },
+    
 
   }
 
   function tick(){
-    document.getElementById('attack_range1').value = (1/3) * Math.round(document.getElementById('attack_range1').value / (1/3))
     document.getElementById('ammo').value = Math.round(document.getElementById('ammo').value)
     document.getElementById('projectiles').value = Math.round(document.getElementById('projectiles').value)
 
@@ -86,9 +94,7 @@
         <div id="mode4" class = "mode" style = "top:10px;left:40px">
           <img class = "mode-icon" src = "mode4.png" onclick="mode=4;">
         </div>
-        <div class = "mode" style = "top:10px;left:50px">
-          
-        </div>
+        
       </div>
       <!--Settings-->
       <div style="display:flex">
@@ -198,18 +204,20 @@
           
           function draw1(){
             const canvas = document.getElementById("attack_form1canvas");
+            
+            
             zoom1 = Math.min(5/(1+document.getElementById('attack_range1').value/3),2)
             if (canvas.getContext) {
               const ctx = canvas.getContext("2d");
+              ctx.lineWidth = 3;
               function circle(x,y,r){
                 const centerX = x
                 const centerY = y
                 const radius = r
-                // Drawing the circle
-                ctx.beginPath(); // Start a new path
-                ctx.arc(centerX, centerY, radius, 0, 2* Math.PI); // Define the circle arc
-                ctx.lineWidth = 3; // Set the outline thickness
-                ctx.stroke(); // Draw the outline
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, 0, 2* Math.PI);
+                
+                ctx.stroke();
               }
               ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -218,6 +226,7 @@
               ctx.fillStyle = "hsl(40 70 70)";
               ctx.fillRect(0,0,200,200);
               ctx.fillStyle = "hsl(40 70 60)";
+              ctx.lineStyle = "hsl(100,100,100)"
               for(var i = 0; i < Math.ceil(20/zoom1); i++){
                 for(var ii = 0; ii < Math.ceil(10/zoom1); ii++){
                   ctx.fillRect(zoom1*ii*20+zoom1*10*(i%2),i*10*zoom1,10*zoom1,10*zoom1);
@@ -227,24 +236,63 @@
               let x = Math.round(30/tile)*tile
               let y = Math.round(100/tile)*tile
               //player and attack
-              ctx.fillStyle = "hsl(80 100 30)";
-              ctx.fillRect(x,y,10*zoom1,10*zoom1)
-              ctx.fillStyle = "hsl(0 100 40)";
-              ctx.globalAlpha = 0.4;
-              if (document.getElementById('attack_form1').value==0){
+
+              ctx.fillStyle = "hsl(100 100 100)";
+              ctx.strokeStyle = "hsl(100 100 100)";
+              let form1 = document.getElementById('attack_form1').value;
+              let radius1 = document.getElementById('attack_radius1').value;
+              let range1 = document.getElementById('attack_range1').value;
+              
+              if (form1==0){
+                 //straight
+                ctx.globalAlpha = 0.25;
                 ctx.fillRect(
                   x+10*zoom1,
-                  y+zoom1*(5-5*document.getElementById('attack_radius1').value),
-                  zoom1*10*document.getElementById('attack_range1').value,
-                  zoom1*10*document.getElementById('attack_radius1').value)
-              }else if (true){
+                  y+zoom1*(5-5*radius1),
+                  zoom1*10*range1,
+                  zoom1*10*radius1);
+                ctx.globalAlpha = 1;
+                ctx.strokeRect(
+                  x+10*zoom1,
+                  y+zoom1*(5-5*radius1),
+                  zoom1*10*range1,
+                  zoom1*10*radius1);
+              } else if (form1==1){
+                let centerX = x + 5 * zoom1;
+                let centerY = y + 5 * zoom1;
+                let attackLength = 10 * range1 * zoom1;
+                let targetWidth = 10 * radius1 * zoom1;
+                let halfWidth = Math.min(targetWidth / 2, attackLength);
+                
+                let angleSpread = Math.asin(halfWidth / attackLength);
+                ctx.globalAlpha = 0.25;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                
+                ctx.arc(centerX, centerY, attackLength, -angleSpread, angleSpread);
+                
+                ctx.lineTo(centerX, centerY);
+                ctx.closePath();
+                ctx.globalAlpha = 1;
+                ctx.stroke();
+                ctx.globalAlpha = 0.25;
+                ctx.fill();
+              }else{
+                // throw
                 circle(
-                  x+5*zoom1+10*document.getElementById('attack_range1').value*zoom1,
-                  y+5*document.getElementById('attack_radius1').value*zoom1,
-                  10*document.getElementById('attack_radius1').value*zoom1)
-
+                  x + 5 * zoom1 + 10 * range1 * zoom1,
+                  y + 5 * zoom1,
+                  10 * radius1 * zoom1
+                );
+                ctx.globalAlpha = 1;
+                ctx.stroke();
+                ctx.globalAlpha = 0.25;
+                ctx.fill();
               }
               //ctx.fillRect(10,10,10,10);
+              ctx.globalAlpha = 1;
+              ctx.fillStyle = "hsl(80 100 30)";
+              ctx.fillRect(x,y,10*zoom1,10*zoom1)
               
             }
           }
