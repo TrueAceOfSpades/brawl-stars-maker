@@ -127,3 +127,12 @@ input.input {
     border-style: solid;
     border-radius:5px;
 }
+.attack {
+    border-radius: 15px;
+    background-color: rgb(255,255,255,0.2);
+    position: relative;
+    width:800px;
+    height:482px;
+    left:0px;
+    top:-20px;
+}
